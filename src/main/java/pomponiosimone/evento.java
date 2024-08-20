@@ -1,10 +1,12 @@
 package pomponiosimone;
 
 import jakarta.persistence.*;
+import pomponiosimone.entities.TipoEvento;
 
 @Entity
 @Table(name = "evento")
 public class evento {
+    public String getTitolo;
     @Id
     @GeneratedValue
     private long id;
@@ -16,10 +18,27 @@ public class evento {
     private String descrizione;
     @Column(name = "numero_massimo_partecipanti")
     private Integer numeroMassimoPartecipanti;
-//constructor
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_evento")
+    private TipoEvento tipoEvento;
 
-    public evento(long id, String titolom) {
-        this.id = id;
+    //constructor
+    public evento() {
+    }
+
+    public evento(String titolo, TipoEvento tipoEvento) {
+
+        this.titolo = titolo;
+        this.tipoEvento = tipoEvento;
+    }
+
+    public evento(String titolo, String dataEvento, String descrizione, Integer numeroMassimoPartecipanti, TipoEvento tipoEvento) {
+
+        this.titolo = titolo;
+        this.dataEvento = dataEvento;
+        this.descrizione = descrizione;
+        this.numeroMassimoPartecipanti = numeroMassimoPartecipanti;
+        this.tipoEvento = tipoEvento;
     }
 
 
@@ -58,4 +77,13 @@ public class evento {
     public long getId() {
         return id;
     }
+
+    public TipoEvento getTipoEvento() {
+        return tipoEvento;
+    }
+
+    public void setTipoEvento(TipoEvento tipoEvento) {
+        this.tipoEvento = tipoEvento;
+    }
 }
+

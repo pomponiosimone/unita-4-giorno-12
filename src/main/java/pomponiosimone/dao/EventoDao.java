@@ -20,7 +20,14 @@ public class EventoDao {
         em.persist(evento);
 
         transaction.commit();
-        System.out.println("lo Studente" + evento.getTitolo + "è stato salvato correttamente");
+        System.out.println("l'evento  " + evento.getTitolo() + "  è stato salvato correttamente");
     }
 
+    //getById
+    public evento findById(long id) {
+
+        return em.find(evento.class, id);
+    }
 }
+
+

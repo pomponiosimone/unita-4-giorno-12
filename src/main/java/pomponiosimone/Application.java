@@ -20,6 +20,10 @@ public class Application {
         evento luke = new evento("Rap", "2023-10-10", "Disco Platino", 1000, PRIVATO);
         sd.save(geolier);
         sd.save(luke);
+
+        //ricerca
+        evento Egeolier = sd.findById(52);
+        System.out.println("evento ricercato  " + Egeolier);
         em.close();
         emf.close();
     }

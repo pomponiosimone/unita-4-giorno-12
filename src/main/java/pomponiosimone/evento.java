@@ -6,7 +6,8 @@ import pomponiosimone.entities.TipoEvento;
 @Entity
 @Table(name = "evento")
 public class evento {
-    public String getTitolo;
+
+
     @Id
     @GeneratedValue
     private long id;
@@ -66,6 +67,10 @@ public class evento {
         return titolo;
     }
 
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
+    }
+
     public String getDataEvento() {
         return dataEvento;
     }
@@ -85,5 +90,17 @@ public class evento {
     public void setTipoEvento(TipoEvento tipoEvento) {
         this.tipoEvento = tipoEvento;
     }
+
+    @Override
+    public String toString() {
+        return "Evento{" +
+                "id=" + id +
+                ", titolo='" + titolo + '\'' +
+                ", dataEvento='" + dataEvento + '\'' +
+                ", descrizione='" + descrizione + '\'' +
+                ", numeroMassimoPartecipanti=" + numeroMassimoPartecipanti +
+                '}';
+    }
 }
+
 
